@@ -1,0 +1,163 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Activity#2/Application 1.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyMShsrX1sUiGSCFNMuHfft9",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/wearlianbaguio/OOP-1-1/blob/main/OOP%20Concepts%202\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##Application 1\n",
+        "1. Create a Python program that displays the name of the students (Student 1, Student 2, Student 3) and their term grades\n",
+        "2. Create a class name Person and attributes - std1, std2, std3, pre, mid, fin\n",
+        "3. Compute the average of each term grade using Grade() method \n",
+        "4. Information about student's grades must be hidden from others \n",
+        "5. Save your python program named as \"OOP Concepts 2\" to your GitHub repository \"OOP 1-1\"\n",
+        "6. Share your GitHub link attached with this manuscript."
+      ],
+      "metadata": {
+        "id": "113TXi1mXCRM"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Person:\n",
+        "  def __init__(self,std1_fullname,std1_PreMidFin,std2_fullname,std2_PreMidFin,std3_fullname,std3_PreMidFin):\n",
+        "    self.std1_fullname = std1_fullname\n",
+        "    self.__std1_PreMidFin = std1_PreMidFin\n",
+        "    self.std2_fullname = std2_fullname\n",
+        "    self.__std2_PreMidFin = std2_PreMidFin\n",
+        "    self.std3_fullname = std3_fullname\n",
+        "    self.__std3_PreMidFin = std3_PreMidFin\n",
+        "  def set_std1_PreMidFin(self, std1_PreMidFin):\n",
+        "    self.__std1_PreMidFin = std1_PreMidFin\n",
+        "  def get_std1_PreMidFin(self):\n",
+        "    return self.__std1_PreMidFin\n",
+        "  def set_std1_PreMidFin(self, std1_PreMidFin):\n",
+        "    self.__std2_PreMidFin = std2_PreMidFin\n",
+        "  def get_std1_PreMidFin(self):\n",
+        "    return self.__std2_PreMidFin\n",
+        "  def set_std1_PreMidFin(self, std1_PreMidFin):\n",
+        "    self.__std3_PreMidFin = std3_PreMidFin\n",
+        "  def get_std1_PreMidFin(self):\n",
+        "    return self.__std3_PreMidFin \n",
+        "\n",
+        "  def Info(self):\n",
+        "    print(self.std1_fullname)\n",
+        "    print(self.__std1_PreMidFin)\n",
+        "    print(self.std2_fullname)\n",
+        "    print(self.__std2_PreMidFin)\n",
+        "    print(self.std3_fullname)\n",
+        "    print(self.__std3_PreMidFin)\n",
+        "\n",
+        "student = Person(\"Barabasz Viscenzo\",\"     Prelim:86  Midterms:90  Final:89\",\"Isabella Sebastian\",\"     Prelim:92  Midterms:90  Final:93\",\"Laszlo Samaniego\",\"     Prelim:95  Midterms:98  Final:97\")\n",
+        "student.Info()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3Oy6pT2UfEp9",
+        "outputId": "508a625d-9dbb-47d6-fd7c-dddfbb1ae50d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Barabasz Viscenzo\n",
+            "     Prelim:86  Midterms:90  Final:89\n",
+            "Isabella Sebastian\n",
+            "     Prelim:92  Midterms:90  Final:93\n",
+            "Laszlo Samaniego\n",
+            "     Prelim:95  Midterms:98  Final:97\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##The average of three students grade based on each of their term"
+      ],
+      "metadata": {
+        "id": "MGaRyuipzGe0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class grades:\n",
+        "  def __init__(self, prelim, midterms, finals):\n",
+        "    self.__prelim = prelim\n",
+        "    self.__midterms = midterms\n",
+        "    self.__finals = finals\n",
+        "  def set_prelim(self, prelim):\n",
+        "    self.__prelim = prelim\n",
+        "  def get_prelim(self):\n",
+        "    return self.__prelim\n",
+        "  def set_prelim(self, midterms):\n",
+        "    self.__midterms = midterms\n",
+        "  def get_midterms(self):\n",
+        "    return self.__midterms\n",
+        "  def set_finals(self, finals):\n",
+        "    self.__finals = finals\n",
+        "  def get_finals(self):\n",
+        "    return self.__finals\n",
+        "  def Grade(self):\n",
+        "    return (self.__prelim + self.__midterms + self.__finals)// 3\n",
+        "std1 = grades(86, 90, 89)\n",
+        "std2 = grades(92, 90, 93)\n",
+        "std3 = grades(95, 98, 97)\n",
+        "\n",
+        "print(\"Barabasz Viscenzo's average is\", std1.Grade()) \n",
+        "print(\"Isablla Sebastian's average is\", std2.Grade()) \n",
+        "print(\"Laszlo Samaniego's average is\", std3.Grade()) "
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6bizZOlgzQ1L",
+        "outputId": "f1ce3aa6-26b5-4102-8ad5-ec3d37c43b65"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Barabasz Viscenzo's average is 88\n",
+            "Isablla Sebastian's average is 91\n",
+            "Laszlo Samaniego's average is 96\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
